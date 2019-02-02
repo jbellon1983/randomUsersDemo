@@ -1,0 +1,72 @@
+PODS:
+  - Alamofire (4.8.1)
+  - Mockingjay (2.0.1):
+    - Mockingjay/Core (= 2.0.1)
+    - Mockingjay/XCTest (= 2.0.1)
+  - Mockingjay/Core (2.0.1):
+    - URITemplate (~> 2.0)
+  - Mockingjay/XCTest (2.0.1):
+    - Mockingjay/Core
+  - Moya/Core (12.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.0)
+  - Moya/RxSwift (12.0.1):
+    - Moya/Core
+    - RxSwift (~> 4.0)
+  - Result (4.0.1)
+  - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
+  - Sourcery (0.15.0)
+  - SVProgressHUD (2.2.5)
+  - SwiftyMocky (3.0.0):
+    - SwiftyMocky/Core (= 3.0.0)
+  - SwiftyMocky/Core (3.0.0):
+    - Sourcery
+  - Swinject (2.5.0)
+  - URITemplate (2.0.3)
+
+DEPENDENCIES:
+  - Mockingjay
+  - Moya/RxSwift (~> 12.0)
+  - Result (~> 4.0.0)
+  - RxCocoa (~> 4.0)
+  - RxSwift (~> 4.0)
+  - SVProgressHUD
+  - SwiftyMocky
+  - Swinject
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Mockingjay
+    - Moya
+    - Result
+    - RxAtomic
+    - RxCocoa
+    - RxSwift
+    - Sourcery
+    - SVProgressHUD
+    - SwiftyMocky
+    - Swinject
+    - URITemplate
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Mockingjay: 11a621880d2887f1775bdcf824341eb68f218450
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  Result: a6e784bebf48b471d59cddc1adb81f41f678c487
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  Sourcery: 5895672cae353cdbfa95f3f4aaeb75a664d76f6a
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftyMocky: b3580655f96a5835a802bbfd8da9570cda0c285e
+  Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
+  URITemplate: ace0c4c46dcf8afe6e89b4060621852886b15c3b
+
+PODFILE CHECKSUM: a52dbc705795d00b8b0e9a93700ee8f418e837cc
+
+COCOAPODS: 1.5.3
