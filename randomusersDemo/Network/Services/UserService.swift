@@ -11,11 +11,11 @@ import Moya
 import RxSwift
 import Result
 
-protocol UserService {
+protocol UserServiceProtocol {
     func getUsers(page: Int?, onSuccess: @escaping (([User]) -> Void), onError: @escaping ((Error) -> Void))
 }
 
-class RandomUserService: UserService {
+class UserService: UserServiceProtocol {
     let userProvider = MoyaProvider<UsersEndpoint>()
     let disposeBag = DisposeBag.init()
     

@@ -23,7 +23,7 @@ class UsersViewModel: UsersViewModelProtocol {
     var users = BehaviorRelay<[User]>.init(value: [])
     var page: Int = 0
     
-    init(service: UserService = RandomUserService()) {
+    init(service: UserService = UserService()) {
         usersService = service
     }
     
