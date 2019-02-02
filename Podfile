@@ -12,6 +12,7 @@ target 'randomusersDemo' do
   pod 'Swinject'
   pod 'Result', '~> 4.0.0'
   pod 'SVProgressHUD'
+  pod 'SDWebImage', '~> 4.0'
 
   target 'randomusersDemoTests' do
     inherit! :search_paths
@@ -21,7 +22,6 @@ target 'randomusersDemo' do
   target 'randomusersDemoUITests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'Mockingjay'
     pod 'SwiftyMocky'
   end
 
