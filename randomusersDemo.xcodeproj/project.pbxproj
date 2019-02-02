@@ -22,6 +22,7 @@
 		D893407A2204CFCB005E4F9F /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89340792204CFCB005E4F9F /* UsersViewModel.swift */; };
 		D893407C2205CD1C005E4F9F /* mocky.yml in Resources */ = {isa = PBXBuildFile; fileRef = D893407B2205CD1C005E4F9F /* mocky.yml */; };
 		D8C95E572205D70100434FEA /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C95E552205CEF800434FEA /* Mock.generated.swift */; };
+		D8C95E592206163E00434FEA /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C95E582206163E00434FEA /* Coordinator.swift */; };
 		E33DC4FF752B7586F486B588 /* Pods_randomusersDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AA3AD0213A65A726F5800D /* Pods_randomusersDemoUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		D893407B2205CD1C005E4F9F /* mocky.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mocky.yml; sourceTree = "<group>"; };
 		D893407D2205CD2C005E4F9F /* mocky.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = mocky.yml; path = /Users/jesusbellonquixal/randomUsersDemoGithub/mocky.yml; sourceTree = "<absolute>"; };
 		D8C95E552205CEF800434FEA /* Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
+		D8C95E582206163E00434FEA /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		D9AA3AD0213A65A726F5800D /* Pods_randomusersDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_randomusersDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F09C0B831B7BAB008E3A7F7A /* Pods-randomusersDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-randomusersDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-randomusersDemoTests/Pods-randomusersDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,6 +206,7 @@
 		D893406C2204CCE3005E4F9F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D8C95E582206163E00434FEA /* Coordinator.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				D89340762204CE30005E4F9F /* UserModel.swift in Sources */,
 				D83F75102204CB8D00A3609B /* AppDelegate.swift in Sources */,
 				D89340782204CFBB005E4F9F /* UsersView.swift in Sources */,
+				D8C95E592206163E00434FEA /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
