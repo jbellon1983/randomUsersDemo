@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct UserName : Codable {
+struct UserName : Decodable {
     let title: String
     let first: String
     let last: String
 }
 
-struct User : Hashable, Codable {
+struct User : Hashable, Decodable {
     let gender: String
     let name: UserName
     let email: String
@@ -28,7 +28,7 @@ struct User : Hashable, Codable {
     }
 }
 
-struct Users : Codable {
+struct Users : Decodable {
     let results: [User]
 }
 

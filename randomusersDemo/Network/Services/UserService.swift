@@ -29,6 +29,6 @@ class RandomUserService: UserService {
             onSuccess(result)
         }, onError: { (error) in
             onError(error)
-        }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
     }
 }
