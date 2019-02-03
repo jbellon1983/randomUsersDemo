@@ -18,17 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H1E-hD-316">
-                                <rect key="frame" x="0.0" y="10" width="375" height="647"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H1E-hD-316">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="H1E-hD-316" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="10J-zZ-hq3"/>
-                            <constraint firstItem="H1E-hD-316" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" id="Eo0-eB-EPZ"/>
+                            <constraint firstItem="H1E-hD-316" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="Eo0-eB-EPZ"/>
                             <constraint firstItem="H1E-hD-316" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="G7S-ai-nNw"/>
-                            <constraint firstItem="H1E-hD-316" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="jpx-La-t3v"/>
+                            <constraint firstItem="H1E-hD-316" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="jpx-La-t3v"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

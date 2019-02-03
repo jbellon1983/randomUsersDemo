@@ -14,10 +14,22 @@ struct UserName : Decodable {
     let last: String
 }
 
+struct Picture : Decodable {
+    let large: String
+    let medium: String
+    let thumbnail: String
+}
+
+struct Dob : Decodable {
+    let age: Int
+}
+
 struct User : Hashable, Decodable {
     let gender: String
     let name: UserName
     let email: String
+    let picture: Picture
+    let dob: Dob
     
     var hashValue: Int {
         return (name.first+email).hashValue
