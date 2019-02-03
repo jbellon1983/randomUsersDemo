@@ -19,11 +19,14 @@ protocol Coordinator {
     var navigationController: UINavigationController { get set }
     
     func start()
+    func navigateTo(module: Modules)
 }
 
 class MainCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
+    
+    static let shared = MainCoordinator.init(navigationController: UINavigationController())
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -31,19 +34,18 @@ class MainCoordinator: Coordinator {
     
     func start() {
         let vc = UsersListView.view(viewModel: UsersListViewModel.init(service: UserService()))
-        navigationController.pushViewController(vc, animated: false)
+        navigationController.pushViewController(vc, animated: true)
     }
     
     func navigateTo(module: Modules) {
         let vc: UIViewController
         switch module {
         case .usersList:
-            vc = UsersListView.view(viewModel: UsersListViewModel.init(service: UserService()))
+            vc = UsersListView.view(viewModel: UsersListViewModel.init(service: UserService.init()))
         case .userProfile(let user):
-            vc = UsersListView.view(viewModel: UsersListViewModel.init(service: UserService()))
+            vc = UserProfileView.view(viewModel: UserProfileViewModel.init(user: user))
         }
-        navigationController.pushViewController(vc, animated: false)
+        navigationController.pushViewController(vc, animated: true)
     }
     
 }
-

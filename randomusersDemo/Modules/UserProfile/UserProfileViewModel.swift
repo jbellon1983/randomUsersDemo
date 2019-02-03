@@ -7,7 +7,13 @@
 //
 
 import Foundation
+import RxSwift
 
 class UserProfileViewModel {
     
+    let user: BehaviorSubject<User>
+    
+    init(user: User) {
+        self.user = BehaviorSubject.init(value: user)
+    }
 }

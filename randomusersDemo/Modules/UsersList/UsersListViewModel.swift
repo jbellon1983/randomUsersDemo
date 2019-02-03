@@ -39,7 +39,7 @@ class UsersListViewModel: UsersListViewModelProtocol {
             self.page = self.page + 1
             getUsers(page: self.page)
         }
-    }
+    }        
     
     private func getUsers(page: Int) {
         usersService.getUsers(page: page, onSuccess: { (newusers) in

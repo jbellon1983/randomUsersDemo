@@ -22,7 +22,7 @@ class UsersListView: UIViewController, UITableViewDelegate, UITableViewDataSourc
     let searchController = UISearchController(searchResultsController: nil)
     var searchBar: UISearchBar { return searchController.searchBar }
     
-    var viewModel: UsersListViewModel?
+    var viewModel: UsersListViewModelProtocol?
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -86,6 +86,11 @@ class UsersListView: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let user = viewModel?.users.value[indexPath.row] else { return }
+        MainCoordinator.shared.navigateTo(module: .userProfile(user))
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.setSelected(false, animated: true)
+        }
         
     }
 }
