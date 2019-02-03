@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+enum Modules {
+    case usersList
+    case userProfile(User)
+}
+
 protocol Coordinator {
     var childCoordinators: [Coordinator] { get set }
     var navigationController: UINavigationController { get set }
@@ -28,5 +33,17 @@ class MainCoordinator: Coordinator {
         let vc = UsersListView.view(viewModel: UsersListViewModel.init(service: UserService()))
         navigationController.pushViewController(vc, animated: false)
     }
+    
+    func navigateTo(module: Modules) {
+        let vc: UIViewController
+        switch module {
+        case .usersList:
+            vc = UsersListView.view(viewModel: UsersListViewModel.init(service: UserService()))
+        case .userProfile(let user):
+            vc = UsersListView.view(viewModel: UsersListViewModel.init(service: UserService()))
+        }
+        navigationController.pushViewController(vc, animated: false)
+    }
+    
 }
 

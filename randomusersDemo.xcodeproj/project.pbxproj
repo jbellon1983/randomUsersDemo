@@ -19,6 +19,8 @@
 		D875473E2206E7A300072057 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D875473C2206E7A300072057 /* UserTableViewCell.xib */; };
 		D87547432206FCB600072057 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87547422206FCB600072057 /* Errors.swift */; };
 		D87547452206FF7100072057 /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87547442206FF7100072057 /* RealmUtils.swift */; };
+		D8754748220753C700072057 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8754747220753C700072057 /* UserProfileView.swift */; };
+		D875474A220753D100072057 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8754749220753D100072057 /* UserProfileViewModel.swift */; };
 		D89340722204CDCC005E4F9F /* RandomUsersEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89340712204CDCC005E4F9F /* RandomUsersEndpoint.swift */; };
 		D89340742204CDD8005E4F9F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89340732204CDD8005E4F9F /* UserService.swift */; };
 		D89340762204CE30005E4F9F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89340752204CE30005E4F9F /* UserModel.swift */; };
@@ -71,6 +73,8 @@
 		D875473C2206E7A300072057 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		D87547422206FCB600072057 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		D87547442206FF7100072057 /* RealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUtils.swift; sourceTree = "<group>"; };
+		D8754747220753C700072057 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		D8754749220753D100072057 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		D89340712204CDCC005E4F9F /* RandomUsersEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUsersEndpoint.swift; sourceTree = "<group>"; };
 		D89340732204CDD8005E4F9F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D89340752204CE30005E4F9F /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -203,6 +207,15 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		D8754746220753B700072057 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				D8754747220753C700072057 /* UserProfileView.swift */,
+				D8754749220753D100072057 /* UserProfileViewModel.swift */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
 		D893406A2204CCC6005E4F9F /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,7 +228,8 @@
 		D893406B2204CCCD005E4F9F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				D893406E2204CD98005E4F9F /* Users */,
+				D8754746220753B700072057 /* UserProfile */,
+				D893406E2204CD98005E4F9F /* UsersList */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -238,14 +252,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		D893406E2204CD98005E4F9F /* Users */ = {
+		D893406E2204CD98005E4F9F /* UsersList */ = {
 			isa = PBXGroup;
 			children = (
 				D875473A2206E77A00072057 /* UIKit */,
 				D89340772204CFBB005E4F9F /* UsersListView.swift */,
 				D89340792204CFCB005E4F9F /* UsersListViewModel.swift */,
 			);
-			path = Users;
+			path = UsersList;
 			sourceTree = "<group>";
 		};
 		D893406F2204CDA4005E4F9F /* Endpoints */ = {
@@ -566,8 +580,10 @@
 				D89340722204CDCC005E4F9F /* RandomUsersEndpoint.swift in Sources */,
 				D89340762204CE30005E4F9F /* UserModel.swift in Sources */,
 				D875473D2206E7A300072057 /* UserTableViewCell.swift in Sources */,
+				D875474A220753D100072057 /* UserProfileViewModel.swift in Sources */,
 				D83F75102204CB8D00A3609B /* AppDelegate.swift in Sources */,
 				D87547432206FCB600072057 /* Errors.swift in Sources */,
+				D8754748220753C700072057 /* UserProfileView.swift in Sources */,
 				D89340782204CFBB005E4F9F /* UsersListView.swift in Sources */,
 				D8C95E592206163E00434FEA /* Coordinator.swift in Sources */,
 				D87547452206FF7100072057 /* RealmUtils.swift in Sources */,
