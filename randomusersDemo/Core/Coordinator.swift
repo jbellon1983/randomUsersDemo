@@ -25,7 +25,7 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        let vc = UsersView.view(viewModel: UsersViewModel.init(service: UserService()))
+        let vc = UsersListView.view(viewModel: UsersListViewModel.init(service: UserService()))
         navigationController.pushViewController(vc, animated: false)
     }
 }

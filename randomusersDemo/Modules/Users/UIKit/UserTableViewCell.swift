@@ -32,10 +32,10 @@ class UserTableViewCell: UITableViewCell {
     }
     
     func loadData(user: User?) {
-        guard let u = user else { return }
-        if let url = URL.init(string: u.picture.thumbnail) {
+        guard let u = user, let username = u.name, let pic = u.picture else { return }
+        if let url = URL.init(string: pic.thumbnail) {
             picture.sd_setImage(with: url, completed: nil)            
         }
-        name.text = String.init(format: "%@. %@ %@", u.name.title, u.name.first, u.name.last)
+        name.text = String.init(format: "%@. %@ %@", username.title, username.first, username.last)
     }
 }
