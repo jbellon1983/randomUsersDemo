@@ -7,20 +7,38 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct UserName : Decodable {
-    let title: String
-    let first: String
-    let last: String
+class UserName : Object, Decodable {
+    @objc dynamic var title: String
+    @objc dynamic var first: String
+    @objc dynamic var last: String
 }
 
-struct User : Hashable, Decodable {
-    let gender: String
-    let name: UserName
-    let email: String
+class Picture : Object, Decodable {
+    @objc dynamic var large: String
+    @objc dynamic var medium: String
+    @objc dynamic var thumbnail: String
+}
+
+class Dob : Object, Decodable {
+    @objc dynamic var age: Int
+}
+
+class User : Object, Decodable {
     
-    var hashValue: Int {
-        return (name.first+email).hashValue
+    @objc dynamic var gender: String
+    @objc dynamic var email: String
+    @objc dynamic var name: UserName? = nil
+    @objc dynamic var picture: Picture? = nil
+    @objc dynamic var dob: Dob? = nil
+    
+    override var hash: Int {
+        return (name?.first ?? "" + email).hashValue
+    }
+    
+    override static func primaryKey() -> String? {
+        return "email"
     }
     
     static func == (lhs: User, rhs: User) -> Bool {
@@ -28,7 +46,6 @@ struct User : Hashable, Decodable {
     }
 }
 
-struct Users : Decodable {
+class Users : Decodable {
     let results: [User]
 }
-

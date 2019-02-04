@@ -15,14 +15,14 @@ import RxSwift
 import RxCocoa
 import SVProgressHUD
 
-class UsersView: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class UsersListView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
     
     let searchController = UISearchController(searchResultsController: nil)
     var searchBar: UISearchBar { return searchController.searchBar }
     
-    var viewModel: UsersViewModel?
+    var viewModel: UsersListViewModelProtocol?
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -35,8 +35,8 @@ class UsersView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         loadData()
     }
     
-    func configureTableView() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+    func configureTableView() {        
+        tableView.register(UINib.init(nibName: UserTableViewCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: UserTableViewCell.cellIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -69,10 +69,11 @@ class UsersView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.cellIdentifier, for: indexPath) as! UserTableViewCell
         
-        guard let users = viewModel?.users.value else { return cell }
-        cell.textLabel?.text = users[indexPath.row].name.first
+        guard let users = viewModel?.users.value else { return cell }        
+        cell.loadData(user: users[indexPath.row])
+        
         return cell
     }
     
@@ -83,11 +84,20 @@ class UsersView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             viewModel?.loadMoreUsers(first: true)
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let user = viewModel?.users.value[indexPath.row] else { return }
+        MainCoordinator.shared.navigateTo(module: .userProfile(user))
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.setSelected(false, animated: true)
+        }
+        
+    }
 }
 
-extension UsersView {
-    static func view(viewModel: UsersViewModel) -> UIViewController {
-        guard let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UsersView") as? UsersView else {
+extension UsersListView {
+    static func view(viewModel: UsersListViewModel) -> UIViewController {
+        guard let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UsersListView") as? UsersListView else {
             fatalError("Cannot instantiate UsersView")
         }
         view.viewModel = viewModel

@@ -6,6 +6,11 @@ PODS:
   - Moya/RxSwift (12.0.1):
     - Moya/Core
     - RxSwift (~> 4.0)
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
+  - RealmSwift (3.13.1):
+    - Realm (= 3.13.1)
   - Result (4.0.1)
   - RxAtomic (4.4.0)
   - RxCocoa (4.4.0):
@@ -25,6 +30,7 @@ PODS:
 
 DEPENDENCIES:
   - Moya/RxSwift (~> 12.0)
+  - RealmSwift
   - Result (~> 4.0.0)
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
@@ -37,6 +43,8 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Moya
+    - Realm
+    - RealmSwift
     - Result
     - RxAtomic
     - RxCocoa
@@ -50,6 +58,8 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
   Result: a6e784bebf48b471d59cddc1adb81f41f678c487
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
@@ -60,6 +70,6 @@ SPEC CHECKSUMS:
   SwiftyMocky: b3580655f96a5835a802bbfd8da9570cda0c285e
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
 
-PODFILE CHECKSUM: 99ff9e4172c3a4cb1de39ed0b0c209246a1a745b
+PODFILE CHECKSUM: 08bd771e7ef60b9a41324ea8a3b1b2e4c26bb72a
 
 COCOAPODS: 1.5.3

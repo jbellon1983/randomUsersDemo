@@ -9,22 +9,27 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RealmSwift
 
-protocol UsersViewModelProtocol {
+protocol UsersListViewModelProtocol {
     var users: BehaviorRelay<[User]> { get set }
     func loadMoreUsers(first: Bool)
 }
 
-class UsersViewModel: UsersViewModelProtocol {
+class UsersListViewModel: UsersListViewModelProtocol {
     
-    let searchText = BehaviorRelay(value: "")
+    let searchText: BehaviorRelay<String>
     let usersService: UserService
+    let disposeBag: DisposeBag
     
     var users = BehaviorRelay<[User]>.init(value: [])
     var page: Int = 0
     
     init(service: UserService = UserService()) {
         usersService = service
+        disposeBag = DisposeBag.init()
+        searchText = BehaviorRelay.init(value: "")
+        bindSubscribers()
     }
     
     func loadMoreUsers(first: Bool) {
@@ -34,7 +39,7 @@ class UsersViewModel: UsersViewModelProtocol {
             self.page = self.page + 1
             getUsers(page: self.page)
         }
-    }
+    }        
     
     private func getUsers(page: Int) {
         usersService.getUsers(page: page, onSuccess: { (newusers) in
@@ -44,6 +49,12 @@ class UsersViewModel: UsersViewModelProtocol {
         }) { (error) in
             
         }
+    }
+    
+    private func bindSubscribers() {
+        users.subscribe { (users) in
+            try? users.element?.createOrUpdate(class: User.self)
+        }.disposed(by: disposeBag)
     }
 }
 
