@@ -11,7 +11,7 @@ args:
     - randomusersDemo
   import:
     - RxSwift
-    - RxBlocking
+    - RxCocoa
   excludedSwiftLintRules:
     - force_cast
     - function_body_length

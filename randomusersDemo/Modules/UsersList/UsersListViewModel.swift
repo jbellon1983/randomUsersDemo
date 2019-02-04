@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 
+//sourcery: AutoMockable
 protocol UsersListViewModelProtocol {
     var users: BehaviorRelay<[User]> { get set }
     func loadMoreUsers(first: Bool)
