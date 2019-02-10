@@ -8,16 +8,17 @@
 
 import XCTest
 import SwiftyMocky
+@testable import randomusersDemo
 
 class UserListViewModelTests: XCTestCase {
     
-    var viewModel: UsersListViewModelProtocolMock!
+    var viewModel: UsersListViewModel!
     var service: UserServiceProtocolMock!
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        viewModel = UsersListViewModelProtocolMock()
         service = UserServiceProtocolMock()
+        viewModel = UsersListViewModel.init(service: service)
     }
 
     func testLoadMoreUsersFirstLoad() {

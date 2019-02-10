@@ -20,13 +20,13 @@ protocol UsersListViewModelProtocol {
 class UsersListViewModel: UsersListViewModelProtocol {
     
     let searchText: BehaviorRelay<String>
-    let usersService: UserService
+    let usersService: UserServiceProtocol
     let disposeBag: DisposeBag
     
     var users = BehaviorRelay<[User]>.init(value: [])
     var page: Int = 0
     
-    init(service: UserService = UserService()) {
+    init(service: UserServiceProtocol = UserService()) {
         usersService = service
         disposeBag = DisposeBag.init()
         searchText = BehaviorRelay.init(value: "")
