@@ -74,15 +74,15 @@ class UserServiceProtocolMock: UserServiceProtocol, Mock {
 
 
 
-    func getUsers(page: Int?, onSuccess: @escaping (([User]) -> Void), onError: @escaping ((Error) -> Void)) {
-        addInvocation(.m_getUsers__page_pageonSuccess_onSuccessonError_onError(Parameter<Int?>.value(`page`), Parameter<([User]) -> Void>.value(`onSuccess`), Parameter<(Error) -> Void>.value(`onError`)))
-		let perform = methodPerformValue(.m_getUsers__page_pageonSuccess_onSuccessonError_onError(Parameter<Int?>.value(`page`), Parameter<([User]) -> Void>.value(`onSuccess`), Parameter<(Error) -> Void>.value(`onError`))) as? (Int?, @escaping (([User]) -> Void), @escaping ((Error) -> Void)) -> Void
+    func getUsers(page: Int?, onSuccess: @escaping (([User]) -> Void), onError: @escaping ((AppError) -> Void)) {
+        addInvocation(.m_getUsers__page_pageonSuccess_onSuccessonError_onError(Parameter<Int?>.value(`page`), Parameter<([User]) -> Void>.value(`onSuccess`), Parameter<(AppError) -> Void>.value(`onError`)))
+		let perform = methodPerformValue(.m_getUsers__page_pageonSuccess_onSuccessonError_onError(Parameter<Int?>.value(`page`), Parameter<([User]) -> Void>.value(`onSuccess`), Parameter<(AppError) -> Void>.value(`onError`))) as? (Int?, @escaping (([User]) -> Void), @escaping ((AppError) -> Void)) -> Void
 		perform?(`page`, `onSuccess`, `onError`)
     }
 
 
     fileprivate enum MethodType {
-        case m_getUsers__page_pageonSuccess_onSuccessonError_onError(Parameter<Int?>, Parameter<([User]) -> Void>, Parameter<(Error) -> Void>)
+        case m_getUsers__page_pageonSuccess_onSuccessonError_onError(Parameter<Int?>, Parameter<([User]) -> Void>, Parameter<(AppError) -> Void>)
 
         static func compareParameters(lhs: MethodType, rhs: MethodType, matcher: Matcher) -> Bool {
             switch (lhs, rhs) {
@@ -115,14 +115,14 @@ class UserServiceProtocolMock: UserServiceProtocol, Mock {
     struct Verify {
         fileprivate var method: MethodType
 
-        static func getUsers(page: Parameter<Int?>, onSuccess: Parameter<([User]) -> Void>, onError: Parameter<(Error) -> Void>) -> Verify { return Verify(method: .m_getUsers__page_pageonSuccess_onSuccessonError_onError(`page`, `onSuccess`, `onError`))}
+        static func getUsers(page: Parameter<Int?>, onSuccess: Parameter<([User]) -> Void>, onError: Parameter<(AppError) -> Void>) -> Verify { return Verify(method: .m_getUsers__page_pageonSuccess_onSuccessonError_onError(`page`, `onSuccess`, `onError`))}
     }
 
     struct Perform {
         fileprivate var method: MethodType
         var performs: Any
 
-        static func getUsers(page: Parameter<Int?>, onSuccess: Parameter<([User]) -> Void>, onError: Parameter<(Error) -> Void>, perform: @escaping (Int?, @escaping (([User]) -> Void), @escaping ((Error) -> Void)) -> Void) -> Perform {
+        static func getUsers(page: Parameter<Int?>, onSuccess: Parameter<([User]) -> Void>, onError: Parameter<(AppError) -> Void>, perform: @escaping (Int?, @escaping (([User]) -> Void), @escaping ((AppError) -> Void)) -> Void) -> Perform {
             return Perform(method: .m_getUsers__page_pageonSuccess_onSuccessonError_onError(`page`, `onSuccess`, `onError`), performs: perform)
         }
     }

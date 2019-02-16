@@ -48,7 +48,7 @@ class UsersListViewModel: UsersListViewModelProtocol {
             current.append(contentsOf: newusers)
             self.users.accept(current)
         }) { (error) in
-            
+            Log.logError(error)
         }
     }
     

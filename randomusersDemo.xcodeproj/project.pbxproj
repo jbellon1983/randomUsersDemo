@@ -19,6 +19,7 @@
 		D87547452206FF7100072057 /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87547442206FF7100072057 /* RealmUtils.swift */; };
 		D8754748220753C700072057 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8754747220753C700072057 /* UserProfileView.swift */; };
 		D875474A220753D100072057 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8754749220753D100072057 /* UserProfileViewModel.swift */; };
+		D880117622187FAE00DD8957 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D880117522187FAE00DD8957 /* Log.swift */; };
 		D89340722204CDCC005E4F9F /* RandomUsersEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89340712204CDCC005E4F9F /* RandomUsersEndpoint.swift */; };
 		D89340742204CDD8005E4F9F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89340732204CDD8005E4F9F /* UserService.swift */; };
 		D89340762204CE30005E4F9F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89340752204CE30005E4F9F /* UserModel.swift */; };
@@ -71,6 +72,7 @@
 		D87547442206FF7100072057 /* RealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUtils.swift; sourceTree = "<group>"; };
 		D8754747220753C700072057 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		D8754749220753D100072057 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		D880117522187FAE00DD8957 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		D89340712204CDCC005E4F9F /* RandomUsersEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUsersEndpoint.swift; sourceTree = "<group>"; };
 		D89340732204CDD8005E4F9F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D89340752204CE30005E4F9F /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				D8C95E582206163E00434FEA /* Coordinator.swift */,
 				D87547422206FCB600072057 /* Errors.swift */,
 				D87547442206FF7100072057 /* RealmUtils.swift */,
+				D880117522187FAE00DD8957 /* Log.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 			files = (
 				D89340742204CDD8005E4F9F /* UserService.swift in Sources */,
 				D893407A2204CFCB005E4F9F /* UsersListViewModel.swift in Sources */,
+				D880117622187FAE00DD8957 /* Log.swift in Sources */,
 				D89340722204CDCC005E4F9F /* RandomUsersEndpoint.swift in Sources */,
 				D89340762204CE30005E4F9F /* UserModel.swift in Sources */,
 				D875473D2206E7A300072057 /* UserTableViewCell.swift in Sources */,

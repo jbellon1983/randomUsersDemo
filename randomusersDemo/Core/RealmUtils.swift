@@ -11,7 +11,10 @@ import RealmSwift
 
 extension Array {
     func createOrUpdate(class: AnyClass) throws {
-        guard let db = try? Realm(configuration: .defaultConfiguration) else { throw DBError.dbNotInitialized }
+        guard let db = try? Realm(configuration: .defaultConfiguration) else {
+            Log.logError((DBError.dbNotInitialized, nil))
+            throw DBError.dbNotInitialized
+        }
         var ent = [Object]()
         self.forEach { entity in
             if let e = entity as? Object {

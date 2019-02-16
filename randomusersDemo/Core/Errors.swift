@@ -7,9 +7,15 @@
 //
 
 import Foundation
+import Moya
 
 enum DBError: Swift.Error {
-    case dbNotInitialized
-    case entityNotFound
+    case dbNotInitialized    
     case unknown
 }
+
+enum NetworkError: Swift.Error {
+    case endpointFailed(endpoint: TargetType, message: String)
+}
+
+typealias AppError = (DBError?, NetworkError?)
