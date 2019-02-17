@@ -13,16 +13,28 @@ class RealmUserName : Object {
     @objc dynamic var title: String = ""
     @objc dynamic var first: String = ""
     @objc dynamic var last: String = ""
+    
+    override static func primaryKey() -> String? {
+        return "first"
+    }
 }
 
 class RealmPicture : Object {
     @objc dynamic var large: String = ""
     @objc dynamic var medium: String = ""
     @objc dynamic var thumbnail: String = ""
+
+    override static func primaryKey() -> String? {
+        return "thumbnail"
+    }
 }
 
 class RealmDob : Object {
     @objc dynamic var age: Int = 0
+    
+    override static func primaryKey() -> String? {
+        return "age"
+    }
 }
 
 class RealmUser : Object {
@@ -32,16 +44,18 @@ class RealmUser : Object {
     @objc dynamic var name: RealmUserName? = nil
     @objc dynamic var picture: RealmPicture? = nil
     @objc dynamic var dob: RealmDob? = nil
-    
-    override var hash: Int {
-        return (name?.first ?? "" + email).hashValue
-    }
+    @objc dynamic var isFav: Bool = false
     
     override static func primaryKey() -> String? {
         return "email"
     }
-    
-    static func == (lhs: RealmUser, rhs: RealmUser) -> Bool {
-        return lhs.email == rhs.email
+        
+    func saveAsFavourite(_ isFav: Bool) throws {
+        if let db = try? RealmDBManager.shared.realmDB() {
+            try db.write {
+                self.isFav = isFav
+                db.add(self, update: true)
+            }
+        }
     }
 }

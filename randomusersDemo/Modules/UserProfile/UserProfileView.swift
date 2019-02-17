@@ -22,22 +22,41 @@ class UserProfileView : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel?.user.asObservable().subscribe({ (user) in
-            guard let u = user.element,
-                  let url = URL.init(string: u.picture?.large ?? ""),
-                  let name = u.name
-            else { return }
+        viewModel?.user.asObservable().subscribe(onNext: { (user) in
+            guard
+                let u = user,
+                let url = URL.init(string: u.picture?.large ?? ""),
+                let name = u.name
+                else { return }
             
             self.setProfilePicture(url: url)
             self.name.text = String.init(format: "%@. %@ %@", name.title, name.first, name.last).uppercased()
+            self.configureNavigationBar()
+        }, onError: { (_) in
             
-        }).disposed(by: disposeBag)
+        }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+    }
+    
+    private func configureNavigationBar() {        
+        guard let user = try? viewModel?.user.value(), let isFav = user?.isFav else { return }
+        if isFav {
+            let favButton = UIBarButtonItem.init(image: UIImage(named: "favourite_icon_on"), style: .done, target: self, action: #selector(tapFav))
+            self.navigationItem.rightBarButtonItems = [favButton]
+        } else {
+            let favButton = UIBarButtonItem.init(image: UIImage(named: "favourite_icon_off"), style: .done, target: self, action: #selector(tapFav))
+            self.navigationItem.rightBarButtonItems = [favButton]
+        }
+
     }
     
     private func setProfilePicture(url: URL?) {
         picture.layer.masksToBounds = true
         picture.layer.cornerRadius = picture.frame.size.height/2
         picture.sd_setImage(with: url, completed: nil)
+    }
+    
+    @objc private func tapFav() {
+        viewModel?.saveFavourite()
     }
 }
 

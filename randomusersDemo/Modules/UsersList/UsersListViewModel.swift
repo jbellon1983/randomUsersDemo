@@ -13,7 +13,7 @@ import RealmSwift
 
 //sourcery: AutoMockable
 protocol UsersListViewModelProtocol {
-    var users: BehaviorRelay<[User]> { get set }
+    var users: BehaviorRelay<[RealmUser]> { get set }
     func loadMoreUsers(first: Bool)
 }
 
@@ -23,7 +23,7 @@ class UsersListViewModel: UsersListViewModelProtocol {
     let usersService: UserServiceProtocol
     let disposeBag: DisposeBag
     
-    var users = BehaviorRelay<[User]>.init(value: [])
+    var users = BehaviorRelay<[RealmUser]>.init(value: [])
     var page: Int = 0
     
     init(service: UserServiceProtocol = UserService()) {
@@ -45,7 +45,12 @@ class UsersListViewModel: UsersListViewModelProtocol {
     private func getUsers(page: Int) {
         usersService.getUsers(page: page, onSuccess: { (newusers) in
             var current = self.users.value
-            current.append(contentsOf: newusers)
+            newusers.forEach({ (user) in
+                let realmObject = user.toRealmEntity()
+                if let realmUser = realmObject as? RealmUser  {
+                    current.append(realmUser)
+                }
+            })            
             self.users.accept(current)
         }) { (error) in
             Log.logError(error)
@@ -54,7 +59,7 @@ class UsersListViewModel: UsersListViewModelProtocol {
     
     private func bindSubscribers() {
         users.subscribe { (users) in
-            try? users.element?.createOrUpdate(class: RealmUser.self)
+            try? users.element?.realmCreateOrUpdate(class: RealmUser.self)
         }.disposed(by: disposeBag)
     }
 }

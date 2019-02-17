@@ -31,7 +31,7 @@ class UserTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func loadData(user: User?) {
+    func loadData(user: RealmUser?) {
         guard let u = user, let username = u.name, let pic = u.picture else { return }
         if let url = URL.init(string: pic.thumbnail) {
             picture.sd_setImage(with: url, completed: nil)            

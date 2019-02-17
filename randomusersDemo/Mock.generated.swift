@@ -211,11 +211,11 @@ class UsersListViewModelProtocolMock: UsersListViewModelProtocol, Mock {
         self.line = line
     }
 
-    var users: BehaviorRelay<[User]> {
+    var users: BehaviorRelay<[RealmUser]> {
 		get {	invocations.append(.p_users_get); return __p_users ?? givenGetterValue(.p_users_get, "UsersListViewModelProtocolMock - stub value for users was not defined") }
 		set {	invocations.append(.p_users_set(.value(newValue))); __p_users = newValue }
 	}
-	private var __p_users: (BehaviorRelay<[User]>)?
+	private var __p_users: (BehaviorRelay<[RealmUser]>)?
 
 
 
@@ -231,7 +231,7 @@ class UsersListViewModelProtocolMock: UsersListViewModelProtocol, Mock {
     fileprivate enum MethodType {
         case m_loadMoreUsers__first_first(Parameter<Bool>)
         case p_users_get
-		case p_users_set(Parameter<BehaviorRelay<[User]>>)
+		case p_users_set(Parameter<BehaviorRelay<[RealmUser]>>)
 
         static func compareParameters(lhs: MethodType, rhs: MethodType, matcher: Matcher) -> Bool {
             switch (lhs, rhs) {
@@ -239,7 +239,7 @@ class UsersListViewModelProtocolMock: UsersListViewModelProtocol, Mock {
                 guard Parameter.compare(lhs: lhsFirst, rhs: rhsFirst, with: matcher) else { return false } 
                 return true 
             case (.p_users_get,.p_users_get): return true
-			case (.p_users_set(let left),.p_users_set(let right)): return Parameter<BehaviorRelay<[User]>>.compare(lhs: left, rhs: right, with: matcher)
+			case (.p_users_set(let left),.p_users_set(let right)): return Parameter<BehaviorRelay<[RealmUser]>>.compare(lhs: left, rhs: right, with: matcher)
             default: return false
             }
         }
@@ -261,7 +261,7 @@ class UsersListViewModelProtocolMock: UsersListViewModelProtocol, Mock {
             super.init(products)
         }
 
-        static func users(getter defaultValue: BehaviorRelay<[User]>...) -> PropertyStub {
+        static func users(getter defaultValue: BehaviorRelay<[RealmUser]>...) -> PropertyStub {
             return Given(method: .p_users_get, products: defaultValue.map({ Product.return($0) }))
         }
 
@@ -272,7 +272,7 @@ class UsersListViewModelProtocolMock: UsersListViewModelProtocol, Mock {
 
         static func loadMoreUsers(first: Parameter<Bool>) -> Verify { return Verify(method: .m_loadMoreUsers__first_first(`first`))}
         static var users: Verify { return Verify(method: .p_users_get) }
-		static func users(set newValue: Parameter<BehaviorRelay<[User]>>) -> Verify { return Verify(method: .p_users_set(newValue)) }
+		static func users(set newValue: Parameter<BehaviorRelay<[RealmUser]>>) -> Verify { return Verify(method: .p_users_set(newValue)) }
     }
 
     struct Perform {

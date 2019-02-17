@@ -95,6 +95,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EFh-gK-LYU"/>
                     </view>
+                    <toolbarItems/>
                     <connections>
                         <outlet property="name" destination="uyQ-jb-tfo" id="ShC-1p-NGh"/>
                         <outlet property="picture" destination="05h-fh-gEh" id="GBE-Gt-53D"/>

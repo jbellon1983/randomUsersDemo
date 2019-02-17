@@ -11,7 +11,7 @@ import UIKit
 
 enum Modules {
     case usersList
-    case userProfile(User)
+    case userProfile(RealmUser)
 }
 
 protocol Coordinator {
@@ -43,7 +43,7 @@ class MainCoordinator: Coordinator {
         case .usersList:
             vc = UsersListView.view(viewModel: UsersListViewModel.init(service: UserService.init()))
         case .userProfile(let user):
-            vc = UserProfileView.view(viewModel: UserProfileViewModel.init(user: user))
+            vc = UserProfileView.view(viewModel: UserProfileViewModel.init(email: user.email))
         }
         navigationController.pushViewController(vc, animated: true)
     }

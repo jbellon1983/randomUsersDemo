@@ -9,11 +9,27 @@
 import Foundation
 import RxSwift
 
-class UserProfileViewModel {
+protocol UserProfileViewModelProtocol {
+    func saveFavourite()
+}
+
+class UserProfileViewModel : UserProfileViewModelProtocol {
+
+    var user: BehaviorSubject<RealmUser?>
     
-    let user: BehaviorSubject<User>
+    init(email: String) {
+        print(email)
+        if let realmUser = RealmUser.getRealmObjectByPk(email, realmClass: RealmUser.self) as? RealmUser {
+            self.user = BehaviorSubject.init(value: realmUser)
+            return
+        }
+        self.user = BehaviorSubject.init(value: nil)
+    }
     
-    init(user: User) {
-        self.user = BehaviorSubject.init(value: user)
+    func saveFavourite() {
+        if let user = try? self.user.value(), let realmUser = user {
+            try? realmUser.saveAsFavourite(!realmUser.isFav)
+            self.user.on(Event.next(realmUser))
+        }        
     }
 }
