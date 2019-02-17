@@ -9,6 +9,10 @@
 import Foundation
 import RealmSwift
 
+protocol RealmConvertible {
+    func toRealmEntity() -> Object
+}
+
 extension Array {
     func createOrUpdate(class: AnyClass) throws {
         guard let db = try? Realm(configuration: .defaultConfiguration) else {
@@ -17,7 +21,7 @@ extension Array {
         }
         var ent = [Object]()
         self.forEach { entity in
-            if let e = entity as? Object {
+            if let e = (entity as? RealmConvertible)?.toRealmEntity() {
                 ent.append(e)
             }
         }

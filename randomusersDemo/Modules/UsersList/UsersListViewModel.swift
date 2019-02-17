@@ -54,7 +54,7 @@ class UsersListViewModel: UsersListViewModelProtocol {
     
     private func bindSubscribers() {
         users.subscribe { (users) in
-            try? users.element?.createOrUpdate(class: User.self)
+            try? users.element?.createOrUpdate(class: RealmUser.self)
         }.disposed(by: disposeBag)
     }
 }

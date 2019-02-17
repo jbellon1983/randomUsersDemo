@@ -20,9 +20,11 @@
 		D8754748220753C700072057 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8754747220753C700072057 /* UserProfileView.swift */; };
 		D875474A220753D100072057 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8754749220753D100072057 /* UserProfileViewModel.swift */; };
 		D880117622187FAE00DD8957 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D880117522187FAE00DD8957 /* Log.swift */; };
+		D880117A2218858C00DD8957 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88011792218858C00DD8957 /* UserModel.swift */; };
+		D880118222195EFE00DD8957 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D880118122195EFE00DD8957 /* NSObject+Extensions.swift */; };
 		D89340722204CDCC005E4F9F /* RandomUsersEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89340712204CDCC005E4F9F /* RandomUsersEndpoint.swift */; };
 		D89340742204CDD8005E4F9F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89340732204CDD8005E4F9F /* UserService.swift */; };
-		D89340762204CE30005E4F9F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89340752204CE30005E4F9F /* UserModel.swift */; };
+		D89340762204CE30005E4F9F /* RealmUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89340752204CE30005E4F9F /* RealmUserModel.swift */; };
 		D89340782204CFBB005E4F9F /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89340772204CFBB005E4F9F /* UsersListView.swift */; };
 		D893407A2204CFCB005E4F9F /* UsersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89340792204CFCB005E4F9F /* UsersListViewModel.swift */; };
 		D898BB6822081BD100E8A280 /* mocky.yml in Resources */ = {isa = PBXBuildFile; fileRef = D898BB6722081BD100E8A280 /* mocky.yml */; };
@@ -73,9 +75,11 @@
 		D8754747220753C700072057 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		D8754749220753D100072057 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		D880117522187FAE00DD8957 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		D88011792218858C00DD8957 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		D880118122195EFE00DD8957 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
 		D89340712204CDCC005E4F9F /* RandomUsersEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUsersEndpoint.swift; sourceTree = "<group>"; };
 		D89340732204CDD8005E4F9F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
-		D89340752204CE30005E4F9F /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		D89340752204CE30005E4F9F /* RealmUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUserModel.swift; sourceTree = "<group>"; };
 		D89340772204CFBB005E4F9F /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
 		D89340792204CFCB005E4F9F /* UsersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewModel.swift; sourceTree = "<group>"; };
 		D898BB6722081BD100E8A280 /* mocky.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mocky.yml; sourceTree = "<group>"; };
@@ -208,6 +212,14 @@
 			path = UserProfile;
 			sourceTree = "<group>";
 		};
+		D8801177221884FB00DD8957 /* RealmModels */ = {
+			isa = PBXGroup;
+			children = (
+				D89340752204CE30005E4F9F /* RealmUserModel.swift */,
+			);
+			path = RealmModels;
+			sourceTree = "<group>";
+		};
 		D893406A2204CCC6005E4F9F /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +245,7 @@
 				D87547422206FCB600072057 /* Errors.swift */,
 				D87547442206FF7100072057 /* RealmUtils.swift */,
 				D880117522187FAE00DD8957 /* Log.swift */,
+				D880118122195EFE00DD8957 /* NSObject+Extensions.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -240,7 +253,8 @@
 		D893406D2204CCEB005E4F9F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D89340752204CE30005E4F9F /* UserModel.swift */,
+				D88011792218858C00DD8957 /* UserModel.swift */,
+				D8801177221884FB00DD8957 /* RealmModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -567,15 +581,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D880118222195EFE00DD8957 /* NSObject+Extensions.swift in Sources */,
 				D89340742204CDD8005E4F9F /* UserService.swift in Sources */,
 				D893407A2204CFCB005E4F9F /* UsersListViewModel.swift in Sources */,
 				D880117622187FAE00DD8957 /* Log.swift in Sources */,
 				D89340722204CDCC005E4F9F /* RandomUsersEndpoint.swift in Sources */,
-				D89340762204CE30005E4F9F /* UserModel.swift in Sources */,
+				D89340762204CE30005E4F9F /* RealmUserModel.swift in Sources */,
 				D875473D2206E7A300072057 /* UserTableViewCell.swift in Sources */,
 				D875474A220753D100072057 /* UserProfileViewModel.swift in Sources */,
 				D83F75102204CB8D00A3609B /* AppDelegate.swift in Sources */,
 				D87547432206FCB600072057 /* Errors.swift in Sources */,
+				D880117A2218858C00DD8957 /* UserModel.swift in Sources */,
 				D8754748220753C700072057 /* UserProfileView.swift in Sources */,
 				D89340782204CFBB005E4F9F /* UsersListView.swift in Sources */,
 				D8C95E592206163E00434FEA /* Coordinator.swift in Sources */,

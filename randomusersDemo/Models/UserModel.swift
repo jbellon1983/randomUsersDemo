@@ -9,40 +9,49 @@
 import Foundation
 import RealmSwift
 
-class UserName : Object, Decodable {
-    @objc dynamic var title: String
-    @objc dynamic var first: String
-    @objc dynamic var last: String
-}
-
-class Picture : Object, Decodable {
-    @objc dynamic var large: String
-    @objc dynamic var medium: String
-    @objc dynamic var thumbnail: String
-}
-
-class Dob : Object, Decodable {
-    @objc dynamic var age: Int
-}
-
-class User : Object, Decodable {
+class UserName : NSObject, Decodable {
+    var title: String
+    var first: String
+    var last: String
     
-    @objc dynamic var gender: String
-    @objc dynamic var email: String
-    @objc dynamic var name: UserName? = nil
-    @objc dynamic var picture: Picture? = nil
-    @objc dynamic var dob: Dob? = nil
+    override func value(forKey key: String) -> Any? {
+        return self.findPropertyByReflection(key: key)
+    }
+}
+
+class Picture : NSObject, Decodable {
+    var large: String
+    var medium: String
+    var thumbnail: String
     
-    override var hash: Int {
-        return (name?.first ?? "" + email).hashValue
+    override func value(forKey key: String) -> Any? {
+        return self.findPropertyByReflection(key: key)
+    }
+}
+
+class Dob : NSObject, Decodable {
+    var age: Int
+    
+    override func value(forKey key: String) -> Any? {
+        return self.findPropertyByReflection(key: key)
+    }
+}
+
+class User : NSObject, Decodable, RealmConvertible {
+
+    let gender: String
+    let email: String
+    var name: UserName? = nil
+    var picture: Picture? = nil
+    var dob: Dob? = nil
+    
+    func toRealmEntity() -> Object {
+        let realmUser = RealmUser.init(value: self)
+        return realmUser
     }
     
-    override static func primaryKey() -> String? {
-        return "email"
-    }
-    
-    static func == (lhs: User, rhs: User) -> Bool {
-        return lhs.email == rhs.email
+    override func value(forKey key: String) -> Any? {
+        return self.findPropertyByReflection(key: key)
     }
 }
 
